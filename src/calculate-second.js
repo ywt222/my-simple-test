@@ -1,19 +1,24 @@
 function calculate_median(arr) {
-//var i=arr.length;
-if (var i=1; i<arr.length;i+=2)
-{
-  var b = [];
-  b.push(arr[i])
-}
-sort(b,b+arr.length/2);
-var c;
-if (b.length/2 !== 0)
-{
-  c = b[b.length/2];
-}
-else{
-  c=(b[b.length/2]+b[b.length/2+1])/2;
-}
-return c;
-
+  var a = [];
+  for (var i=1;i<arr.length;i+=2){
+    a.push(arr[i]);
+  }
+  for (var i = 0;i<a.length-1;i++){
+    for(var j = i+1;j<a.length;j++){
+      if (a[i] > a[j]){
+        var temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+      }
+    }
+  }
+  var res;
+  var mid = a.length/2;
+  if(a.length % 2 == 0) {
+    res = (a[mid] + a[mid-1])/2;
+  }
+  else {
+    res = a[parseInt(mid)];
+  }
+  return res;
 }
